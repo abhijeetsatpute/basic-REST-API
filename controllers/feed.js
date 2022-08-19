@@ -8,6 +8,13 @@ exports.getFeeds = (req, res, next) => {
 exports.postFeeds = (req, res, next) => {
     const name = req.body.name;
     const age = req.body.age;
-    const feed = {name, age};
-    res.status(200).json(feed)
+    console.log(age, name);
+    const feed = {
+        name,
+        age
+    }
+    res.status(200).json({
+        message: 'Post created successfully!',
+        feed: { id: new Date().toISOString(), name: name, age: age }
+    })
 }
